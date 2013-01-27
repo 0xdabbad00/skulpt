@@ -1,0 +1,3 @@
+cp ../icebuddha/parse_scripts/icebuddha/__init__.py ./src/lib/icebuddha/.
+./m dist;
+cp dist/* ../icebuddha/.
