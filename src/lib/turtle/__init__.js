@@ -1507,7 +1507,7 @@ var $builtinmodule = function(name) {
             if ((typeof(tx)).toLowerCase() === 'number')
                 tx = [tx, ty, 0];
             } else {
-                tx = [self.theTurtle.getx(), self.theTurtle.gety(), 0];
+                tx = [tx.theTurtle.getx(), tx.theTurtle.gety(), 0];
             }
             return self.theTurtle.distance(tx);
         });
