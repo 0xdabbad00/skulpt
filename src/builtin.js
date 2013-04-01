@@ -119,13 +119,8 @@ Sk.builtin.range = function(start, stop, step)
 Sk.builtin.len = function(item)
 {
     if (item.sq$length)
-<<<<<<< HEAD
         return new Sk.builtin.nmber(item.sq$length(),undefined);
     
-=======
-        return item.sq$length();
-
->>>>>>> Add hex, oct, and bin builtin functions.
     if (item.mp$length)
         return new Sk.builtin.nmber(item.mp$length(),undefined);
 
