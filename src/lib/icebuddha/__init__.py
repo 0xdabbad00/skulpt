@@ -1,4 +1,6 @@
 def intToHex(value, fill=8):
+    if fill == 0:
+        return "%X" % value
     if fill == 8:
         return "%0.8X" % value
     else:
@@ -212,6 +214,7 @@ class Node:
         self.children.append(child)
         self.size += child.size
 
+    # TODO Put this somewhere else
     def isMatch(self, a1, a2):
         if (len(a1) != len(a2)):
             return False
@@ -229,11 +232,9 @@ class Node:
             name = parts[0].strip()
             value = int(parts[1].strip(), 0)
 
-            
+            # TODO Don't assume 4 bytes
             valueBytes = [value & 0xff, (value >> 8) & 0xff, (value >> 16) & 0xff, (value >> 24) & 0xff]
             selfBytes = self.getBytes()
-            print valueBytes  # TODO REMOVE
-            print selfBytes  # TODO REMOVE
 
             if self.isMatch(valueBytes, selfBytes):
                 self.setValue(name)
@@ -271,7 +272,7 @@ class Node:
 
             value = "<br>%s%s (%s) %s : %d %s" % (nbsp(11),
                 getMask(bitmask & self.getData(), varSize, bitmask),
-                intToHex(data, (varSize/8)*2),
+                intToHex(data, 0),
                 name,
                 size,
                 comment)
